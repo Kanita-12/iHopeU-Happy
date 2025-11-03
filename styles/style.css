@@ -1,11 +1,88 @@
-.hidden {
-  display: none;
+html {
+  box-sizing: border-box;
 }
 
-.visible {
-  display: block;
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background-color: #ffe4c4;
 }
 
+.hidden{
+  visibility: hidden;
+}
+
+.song {
+  visibility: hidden;
+}
+
+.container {
+  height: 100vh;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  visibility: hidden;
+  width: 100vw;
+}
+
+.container > div {
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 20vh;
+}
+
+.step1 {
+  font-family: "Bitcount Grid Single", system-ui;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.step1 .says{
+  margin: 0;
+  overflow: hidden;
+}
+
+.step1 .says span{
+  visibility: hidden;
+}
+
+.says::after {
+  content: '|';
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+
+.baloons img {
+  display: inline-block;
+  position: absolute;
+  width: 200px;
+  height: auto
+}
+
+.baloons img:nth-child(even) {
+  left: 10%;
+}
+
+.baloons img:nth-child(odd) {
+  right: 10%;
+}
+
+.baloons img:nth-child(3n + 0) {
+  left: 40%;
+}
+
+.step2, .step3 {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+}
 
 
 /* .step7 svg {

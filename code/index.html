@@ -4,11 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Birthday Project</title>
+    <!-- poppins font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <!-- bitcount fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&display=swap" rel="stylesheet">
+    <!--Style -->
     <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body>
     
-   <audio class="music" autoplay loop muted playsinline>
+   <audio class="music" loop playsinline>
      <source src="/music/everybodyWantsYou.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
@@ -17,50 +26,56 @@
     <div class="container">
         <!-- STEP 1 START -->
         <div class="step1">
-            <h1>Hi Cher</h1>
-            <span>
-                <p>How are you doing?</p>
-                <p>I hope you’re doing well :)</p>
-                <p>I’m glad I could make this project for you.</p>
-                <p>I hope you enjoy it!</p>
-            </span>
+            <h1 class="says"></h1>
         </div>
         <!-- STEP 1 END -->
 
         <!-- STEP 2 START -->
-        <div class="step2 hidden">
-            <div class="balloons">
-                <img src="/elementPNG/red.png" alt="">
-                <img src="/elementPNG/white.png" alt="">
-                <img src="/elementPNG/yellow.png" alt="">
-                <img src="/elementPNG/white.png" alt="">
-                <img src="/elementPNG/red.png" alt="">
-                <img src="/elementPNG/yellow.png" alt="">
-                <img src="/elementPNG/red.png" alt="">
-                <img src="/elementPNG/white.png" alt="">
-                <img src="/elementPNG/yellow.png" alt="">
-                <img src="/elementPNG/white.png" alt="">
-                <img src="/elementPNG/red.png" alt="">
-                <img src="/elementPNG/yellow.png" alt="">
-                <img src="/elementPNG/red.png" alt="">
-                <img src="/elementPNG/white.png" alt="">
-                <img src="/elementPNG/yellow.png" alt="">
-                <img src="/elementPNG/white.png" alt="">
-                <img src="/elementPNG/red.png" alt="">
-                <img src="/elementPNG/yellow.png" alt="">
-                <img src="/elementPNG/red.png" alt="">
-                <img src="/elementPNG/white.png" alt="">
-                <img src="/elementPNG/yellow.png" alt="">
-                <img src="/elementPNG/white.png" alt="">
-                <img src="/elementPNG/red.png" alt="">
-                <img src="/elementPNG/yellow.png" alt="">
+        <div class="step2">
+            <div class="baloons">
+                <img src="/elementPNG/1.png" alt="">
+                <img src="/elementPNG/2.png" alt="">
+                <img src="/elementPNG/3.png" alt="">
+                <img src="/elementPNG/2.png" alt="">
+                <img src="/elementPNG/1.png" alt="">
+                <img src="/elementPNG/3.png" alt="">
+                <img src="/elementPNG/1.png" alt="">
+                <img src="/elementPNG/2.png" alt="">
+                <img src="/elementPNG/3.png" alt="">
+                <img src="/elementPNG/2.png" alt="">
+                <img src="/elementPNG/1.png" alt="">
+                <img src="/elementPNG/3.png" alt="">
+                <img src="/elementPNG/1.png" alt="">
+                <img src="/elementPNG/2.png" alt="">
+                <img src="/elementPNG/3.png" alt="">
+                <img src="/elementPNG/2.png" alt="">
+                <img src="/elementPNG/1.png" alt="">
+                <img src="/elementPNG/3.png" alt="">
+                <img src="/elementPNG/1.png" alt="">
+                <img src="/elementPNG/2.png" alt="">
+                <img src="/elementPNG/3.png" alt="">
+                <img src="/elementPNG/2.png" alt="">
+                <img src="/elementPNG/1.png" alt="">
+                <img src="/elementPNG/3.png" alt="">
+                <img src="/elementPNG/1.png" alt="">
+                <img src="/elementPNG/2.png" alt="">
+                <img src="/elementPNG/3.png" alt="">
+                <img src="/elementPNG/2.png" alt="">
+                <img src="/elementPNG/1.png" alt="">
+                <img src="/elementPNG/3.png" alt="">
+                <img src="/elementPNG/1.png" alt="">
+                <img src="/elementPNG/2.png" alt="">
+                <img src="/elementPNG/3.png" alt="">
+                <img src="/elementPNG/2.png" alt="">
+                <img src="/elementPNG/1.png" alt="">
+                <img src="/elementPNG/3.png" alt="">
             </div>
         </div>
         <!-- STEP 2 END -->
 
         <!-- STEP 3 START -->
-        <div class="step3 hidden ">
-            <h1>Here’s Your Present</h1>
+        <div class="step3">
+            <h1 class="textPresent"></h1>
             <button class="img-start">
                 <video src="/elementVideo/close.mp4" autoplay loop muted playsinline></video>  <!-- Replace imageClose => imageOpen -->
             </button>
@@ -149,5 +164,11 @@
     </div>
 
     <script src="/scripts/main.js"></script>
+    <!-- Greensock -->
+     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13/dist/gsap.min.js"></script>
+     <!-- Sweetalert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="application/javascript" src="./script/main.js"></script>
+
 </body>
 </html>
