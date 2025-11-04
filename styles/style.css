@@ -34,7 +34,6 @@ body {
 }
 
 .step1 {
-  font-family: "Bitcount Grid Single", system-ui;
   font-weight: 700;
   font-size: 2rem;
 }
@@ -80,9 +79,9 @@ body {
 }
 
 .step3 {
-  font-family: "Bitcount Grid Single", system-ui;
   font-weight: 700;
   font-size: 2rem;
+  visibility: hidden;
 }
 
 .step3 .textPresent {
@@ -99,7 +98,7 @@ body {
   background: linear-gradient(91deg, #ff0027 0%, rgba(255, 0, 192, 0.85) 80%);
   background: -webkit-linear-gradient(91deg, #ff0027 0%, rgba(255, 0, 192, 0.85) 80%);
   background: -moz-linear-gradient(91deg, #ff0027 0%, rgba(255, 0, 192, 0.85) 80%);
-  cursor: pointer;
+  pointer-events: none;
   box-shadow: -6px 106px 179px -30px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: -6px 106px 179px -30px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: -6px 106px 179px -30px rgba(0, 0, 0, 0.75);
@@ -116,14 +115,21 @@ body {
 }
 
 .step3 .img-start video {
+  cursor: pointer;
+  pointer-events: fill;
   border-radius: 50%;
   width: 386px;
 }
 
-.step3 .img-start video:hover {
+.step3 .img-start video:active {
   opacity: 0.8;
 }
 
+.step4 {
+  font-weight: 700;
+  font-size: 2rem;
+  visibility: hidden;
+}
 
 
 

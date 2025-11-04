@@ -32,7 +32,7 @@ function fadeInMusic(musicElement) {
 
 window.addEventListener("load", () => {
   Swal.fire({
-    title: "This Website Going To Play Music In The Background",
+    title: "This Website Going To Play Music In The Background, Don't Leave Page Until The End Because Masih Banyak Bug :)",
     icon: "info",
     confirmButtonColor: "#3085d6",
     confirmButtonText: "Yes",
@@ -57,65 +57,73 @@ function typeEffect(el, texts, i = 0, j = 0, del = false) {
     if (i === texts.length - 1 && !del) return;
     del = !del;
     if (!del) i = i + 1;
-    setTimeout(() => typeEffect(el, texts, i, j, del), del ? 2000 : 300);
+    setTimeout(() => typeEffect(el, texts, i, j, del), del ? 1000 : 200);
     return;
   }
 
-  const speed = del ? 50 : 100;
+  const speed = del ? 40 : 110;
   setTimeout(() => typeEffect(el, texts, i, j, del), speed);
 }
 
 // ANIMATION TIMELINE
 
 const animationTimeline = () => {
+const tl = new TimelineMax();
   const says = document.querySelector(".says");
   const textStep1 = [
-    "ini kalimat ke satu",
-    "ini kalimat ke dua",
-    "ini kalimat ke tiga",
-    "ini kalimat ke empat",
-    "ini kalimat ke lima",
+  "Hai Chery :)",
+  "Gimana kabarnya?",
+  "Semoga kamu sehat selalu",
+  "Jadi...",
+  "Aku cuma mau bilang...",
+  ".....",
+  "Selamat ulang tahun, Chery",
+  "Semoga harapanmu tercapai",
+  "Dan Selamat menonton :D"
   ];
-
-  const present = document.querySelector(".textPresent");
-  const textStep2 = ["Kalimat1"];
 
   const startGift = document.querySelector(".img-start");
   const videoGift = startGift.querySelector("video");
   const music = document.querySelector(".music");
   const poppet = document.querySelectorAll("audio")[1]
 
-  videoGift.addEventListener("click", () => {
+  const lanjut = videoGift.addEventListener("click", () => {
+  videoGift.style.pointerEvents = "none";
   videoGift.removeAttribute("loop");
   videoGift.src = "/elementVideo/open.mp4";
   setTimeout(() => {
     poppet.play();
     setTimeout(()=> {
       music.play()
+      tl.play("waitClick");
     },1000);
   }, 2000);
 });
 
 
 //   TIMELINE
-  const tl = new TimelineMax();
 
   tl.to(".container", { visibility: "visible" })
     .call(()=> typeEffect(says, textStep1))
-    .from(".step1", { duration: 23 })
-    .to(".step1", { duration: 2, opacity: 0 }, "+=1")
+    .from(".step1", { duration: 33 })
+    .to(".step1", { duration: 1, opacity: 0}, "+=1")
+    .to(".step1",{visibility:"hidden"},"+=0.3")
     .staggerFromTo(
       ".baloons img",
       2.3,
       { y: 1400, opacity: 0.9 },
       { y: -1000, opacity: 1 },
       0.3,
-      "-=2.7"
+      "-=13"
     )
     .call(()=>{
     music.pause()
     })
-    .from(".step3", {opacity: 0 },"+=1")
-    .call(()=> typeEffect(present,textStep2,))
-    .to(".step3", { duration: 0.5, opacity: 1 })
+    .from(".step3", {duration: 1, opacity: 0 },"+=1")
+    .to(".step3", {visibility:"visible",duration: 1, opacity: 1 },"-=1")
+    .addPause("waitClick")
+    .to(".step3", { duration: 0.5, opacity: 0},"+=1")
+    .to(".step3", { visibility:"hidden"},"+=0.3")
+    .from(".step4",{visibility:"visible"},"-=1")
+    .to(".step4",{duration:0.5, opacity:1},"+=1")
 };
