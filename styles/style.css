@@ -8,7 +8,7 @@ body {
   background-color: #ffe4c4;
 }
 
-.hidden{
+.hidden {
   visibility: hidden;
 }
 
@@ -26,7 +26,7 @@ body {
   width: 100vw;
 }
 
-.container > div {
+.container>div {
   left: 0;
   position: absolute;
   right: 0;
@@ -39,12 +39,12 @@ body {
   font-size: 2rem;
 }
 
-.step1 .says{
+.step1 .says {
   margin: 0;
   overflow: hidden;
 }
 
-.step1 .says span{
+.step1 .says span {
   visibility: hidden;
 }
 
@@ -54,7 +54,9 @@ body {
 }
 
 @keyframes blink {
-  50% { opacity: 0; }
+  50% {
+    opacity: 0;
+  }
 }
 
 
@@ -77,12 +79,52 @@ body {
   left: 40%;
 }
 
-.step2, .step3 {
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  width: 100vw;
+.step3 {
+  font-family: "Bitcount Grid Single", system-ui;
+  font-weight: 700;
+  font-size: 2rem;
 }
+
+.step3 .textPresent {
+  margin: 0;
+  overflow: hidden;
+}
+
+.step3 .img-start {
+  border-radius: 50%;
+  width: 395px;
+  height: 395px;
+  border: none;
+  background: #ff0027;
+  background: linear-gradient(91deg, #ff0027 0%, rgba(255, 0, 192, 0.85) 80%);
+  background: -webkit-linear-gradient(91deg, #ff0027 0%, rgba(255, 0, 192, 0.85) 80%);
+  background: -moz-linear-gradient(91deg, #ff0027 0%, rgba(255, 0, 192, 0.85) 80%);
+  cursor: pointer;
+  box-shadow: -6px 106px 179px -30px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: -6px 106px 179px -30px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -6px 106px 179px -30px rgba(0, 0, 0, 0.75);
+}
+
+.step3 p{
+  animation: blinks 2s infinite;
+}
+
+@keyframes blinks{
+    50% {
+    opacity: 0;
+  }
+}
+
+.step3 .img-start video {
+  border-radius: 50%;
+  width: 386px;
+}
+
+.step3 .img-start video:hover {
+  opacity: 0.8;
+}
+
+
 
 
 /* .step7 svg {

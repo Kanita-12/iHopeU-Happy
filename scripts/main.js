@@ -78,24 +78,44 @@ const animationTimeline = () => {
   ];
 
   const present = document.querySelector(".textPresent");
-  const textStep2 = ["Kalimat1","test"];
+  const textStep2 = ["Kalimat1"];
+
+  const startGift = document.querySelector(".img-start");
+  const videoGift = startGift.querySelector("video");
+  const music = document.querySelector(".music");
+  const poppet = document.querySelectorAll("audio")[1]
+
+  videoGift.addEventListener("click", () => {
+  videoGift.removeAttribute("loop");
+  videoGift.src = "/elementVideo/open.mp4";
+  setTimeout(() => {
+    poppet.play();
+    setTimeout(()=> {
+      music.play()
+    },1000);
+  }, 2000);
+});
+
 
 //   TIMELINE
   const tl = new TimelineMax();
 
   tl.to(".container", { visibility: "visible" })
     .call(()=> typeEffect(says, textStep1))
-    .from(".step1", { duration: 2 })
-    .to(".step1", { duration: 2, opacity: 0 }, "+=23")
+    .from(".step1", { duration: 23 })
+    .to(".step1", { duration: 2, opacity: 0 }, "+=1")
     .staggerFromTo(
       ".baloons img",
-      2.5,
+      2.3,
       { y: 1400, opacity: 0.9 },
       { y: -1000, opacity: 1 },
       0.3,
-      "-=2.6"
+      "-=2.7"
     )
-    .from(".step3", {opacity: 0 }, "-=6")
+    .call(()=>{
+    music.pause()
+    })
+    .from(".step3", {opacity: 0 },"+=1")
     .call(()=> typeEffect(present,textStep2,))
-    .to(".step3", { duration: 0.5, opacity: 1 },)
+    .to(".step3", { duration: 0.5, opacity: 1 })
 };
