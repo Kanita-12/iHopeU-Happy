@@ -210,7 +210,8 @@ const animationTimeline = () => {
         scale: 0.8,
         y: 20,
         ease: "elastic.out(1, 0.4)",
-      },"-=1"
+      },
+      "-=1"
     )
     .call(() => typeEffect(cardText, textCard))
     .staggerFromTo(
@@ -218,7 +219,14 @@ const animationTimeline = () => {
       2.3,
       { y: 1400, opacity: 0.9 },
       { y: -1000, opacity: 1 },
-      0.3,
+      0.3
     )
     .to(".baloons img", { visibility: "hidden" })
+    .to(".step4", 0.5,{opacity:0})
+    .to(".step4",0.5,{visibility:"hidden"})
+    .to("body", {
+      backgroundColor: "#1a1a2e", 
+      duration: 2,
+      ease: "power2.inOut", 
+    })
 };
