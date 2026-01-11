@@ -126,7 +126,7 @@ const animationTimeline = () => {
   videoGift.addEventListener("click", () => {
     videoGift.style.pointerEvents = "none";
     videoGift.removeAttribute("loop");
-    videoGift.src = "/elementVideo/open.mp4";
+    videoGift.src = "elementVideo/open.mp4";
     accept.style.color = "green";
     accept.innerText = "Okey, Let Start :D";
     setTimeout(() => {
