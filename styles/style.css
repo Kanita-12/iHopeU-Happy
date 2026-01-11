@@ -51,10 +51,10 @@ body {
   visibility: hidden;
 }
 
-.says::after {
+/* .says::after {
   content: "|";
   animation: blink 1s infinite;
-}
+} */
 
 @keyframes blink {
   50% {
@@ -159,12 +159,6 @@ body {
   gap: 40px;
 }
 
-.number h1 {
-  font-size: 6rem;
-  color: #fff;
-  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
-  animation: float 2s ease-in-out infinite;
-}
 .picture-wrap {
   width: 380px;
   height: 420px;
@@ -222,28 +216,70 @@ body {
   visibility: hidden;
 }
 .step6 {
+  justify-content: center;
+  align-content: center;
   font-weight: 700;
   font-size: 2rem;
+  height: 70%;
   visibility: hidden;
+}
+.step6 h1 {
+  color: white;
 }
 .step7 {
+  justify-content: center;
+  align-content: center;
   font-weight: 700;
   font-size: 2rem;
-  visibility: hidden;
-}
-.step8 {
-  font-weight: 700;
-  font-size: 2rem;
-  visibility: hidden;
-}
-.step9 {
-  font-weight: 700;
-  font-size: 2rem;
+  height: 70%;
   visibility: hidden;
 }
 
-.step5 svg,
-.step8 svg {
+.step7 p{
+  opacity: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 40px;
+}
+
+.happyBirthday {
+  font-family: "Pacifico", cursive;
+  font-size: 150px;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.happyBirthday p {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  letter-spacing: 3px;
+  margin-top: 0;
+}
+
+.happyBirthday span {
+  display: inline-block;
+}
+
+.step8 {
+  position: fixed !important;
+  bottom: 40px !important;
+  left: 50% !important;
+  transform: translateX(-50%);
+  top: 40%!important;
+  right: auto !important;
+  font-weight: 700;
+  font-size: 2rem;
+  visibility: hidden;
+  z-index: 9999;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+.step5 svg {
   left: 0;
   position: absolute;
   top: 0;
@@ -252,65 +288,68 @@ body {
   z-index: -1;
 }
 
-.step5 svg:nth-child(1),
-.step8 svg:nth-child(1) {
+.step5 svg:nth-child(1) {
   fill: #bd6ecf;
   left: 5vw;
   top: 7vh;
 }
 
-.step5 svg:nth-child(2),
-.step8 svg:nth-child(2) {
+.step5 svg:nth-child(2) {
   fill: #7dd175;
   left: 35vw;
   top: 23vh;
 }
 
-.step5 svg:nth-child(3),
-.step8 svg:nth-child(3) {
+.step5 svg:nth-child(3) {
   fill: #349d8b;
   left: 23vw;
   top: 33vh;
 }
 
-.step5 svg:nth-child(4),
-.step8 svg:nth-child(4) {
+.step5 svg:nth-child(4) {
   fill: #347a9d;
   left: 57vw;
   top: 43vh;
 }
 
-.step5 svg:nth-child(5),
-.step8 svg:nth-child(5) {
+.step5 svg:nth-child(5) {
   fill: #c66053;
   left: 7vw;
   top: 68vh;
 }
 
-.step5 svg:nth-child(6),
-.step8 svg:nth-child(6) {
+.step5 svg:nth-child(6) {
   fill: #bfaa40;
   left: 77vw;
   top: 42vh;
 }
 
-.step5 svg:nth-child(7),
-.step8 svg:nth-child(7) {
+.step5 svg:nth-child(7) {
   fill: #e3bae8;
   left: 83vw;
   top: 68vh;
 }
 
-.step5 svg:nth-child(8),
-.step8 svg:nth-child(8) {
+.step5 svg:nth-child(8) {
   fill: #8762cb;
   left: 37vw;
   top: 86vh;
 }
 
-.step5 svg:nth-child(9),
-.step8 svg:nth-child(9) {
+.step5 svg:nth-child(9) {
   fill: #9a90da;
   left: 87vw;
   top: 94vh;
+}
+
+.magic-btn {
+  padding: 14px 40px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 50px;
+  border: none;
+  background: linear-gradient(135deg, #ff7ad9, #7f7cff);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
 }

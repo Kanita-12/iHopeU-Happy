@@ -48,22 +48,56 @@ window.addEventListener("load", () => {
 
 // TYPE EFFECT
 
-function typeEffect(el, texts, i = 0, j = 0, del = false) {
-  const text = texts[i];
-  el.textContent = text.slice(0, j);
+function typeEffect(el, texts) {
+  return new Promise((resolve) => {
+    function run(i = 0, j = 0, del = false) {
+      const text = texts[i];
+      el.textContent = text.slice(0, j);
 
-  if (!del && j < text.length) j++;
-  else if (del && j > 0) j--;
-  else {
-    if (i === texts.length - 1 && !del) return;
-    del = !del;
-    if (!del) i = i + 1;
-    setTimeout(() => typeEffect(el, texts, i, j, del), del ? 1000 : 200);
-    return;
-  }
+      if (!del && j < text.length) j++;
+      else if (del && j > 0) j--;
+      else {
+        if (i === texts.length - 1 && !del) {
+          resolve();
+          return;
+        }
+        del = !del;
+        if (!del) i++;
+        setTimeout(() => run(i, j, del), del ? 1000 : 200);
+        return;
+      }
 
-  const speed = del ? 40 : 110;
-  setTimeout(() => typeEffect(el, texts, i, j, del), speed);
+      setTimeout(() => run(i, j, del), del ? 40 : 110);
+    }
+    run();
+  });
+}
+
+// Another Type effect
+
+function typeEffectt(el, texts) {
+  return new Promise((resolve) => {
+    function run(i = 0, j = 0, del = false) {
+      const text = texts[i];
+      el.textContent = text.slice(0, j);
+
+      if (!del && j < text.length) j++;
+      else if (del && j > 0) j--;
+      else {
+        if (i === texts.length - 1 && !del) {
+          resolve();
+          return;
+        }
+        del = !del;
+        if (!del) i++;
+        setTimeout(() => run(i, j, del), del ? 1000 : 200);
+        return;
+      }
+
+      setTimeout(() => run(i, j, del), del ? 40 : 85);
+    }
+    run();
+  });
 }
 
 // ANIMATION TIMELINE
@@ -89,7 +123,7 @@ const animationTimeline = () => {
   const poppet = document.querySelectorAll("audio")[1];
   const accept = document.querySelectorAll("p")[0];
 
-  const lanjut = videoGift.addEventListener("click", () => {
+  videoGift.addEventListener("click", () => {
     videoGift.style.pointerEvents = "none";
     videoGift.removeAttribute("loop");
     videoGift.src = "/elementVideo/open.mp4";
@@ -105,7 +139,7 @@ const animationTimeline = () => {
   });
 
   const happyBirthDay = document.querySelector(".step4");
-  const happyBirthDayTitle = document.querySelector(".titleBirthDay");
+  const happyBirthDayTitle = happyBirthDay.querySelector(".titleBirthDay");
   happyBirthDayTitle.innerHTML = happyBirthDayTitle.textContent
     .split("")
     .map((char) => `<span>${char}</span>`)
@@ -116,6 +150,33 @@ const animationTimeline = () => {
   const textCard = [
     "Wishing you joy, laughter, and endless happiness today 🎂💖",
   ];
+
+  const step6 = document.querySelector(".step6");
+  const textStep6 = step6.querySelector("h1");
+  const greetingTextStep6 = [
+    "Jadi...",
+    "Selamat ulang tahun, Chery",
+    "Semoga harimu selalu cerah",
+    "Penuh tawa dan senyum tulus",
+    "Dan di hari yang spesial ini",
+    "Semoga dipenuhi senyum hangatmu",
+    "Aku harap kamu sempat melihat ucapan ini",
+    "Walau terlihat sederhana",
+    "Semoga kamu menyukainya",
+    "Dan...",
+  ];
+
+  const step7 = document.querySelector(".step7");
+  const happyBirthDay7 = step7.querySelector(".happyBirthday");
+  happyBirthDay7.innerHTML = happyBirthDay7.textContent
+    .split("")
+    .map((char) => `<span>${char}</span>`)
+    .join("");
+
+  const letter = step7.querySelector("p");
+
+  // End Button
+  const btn = document.querySelector(".magic-btn");
 
   //   TIMELINE
 
@@ -221,12 +282,158 @@ const animationTimeline = () => {
       { y: -1000, opacity: 1 },
       0.3
     )
-    .to(".baloons img", { visibility: "hidden" })
-    .to(".step4", 0.5,{opacity:0})
-    .to(".step4",0.5,{visibility:"hidden"})
+    .to(".step4", 0.5, { opacity: 0 })
+    .to(".step4", 0.5, { visibility: "hidden" })
     .to("body", {
-      backgroundColor: "#1a1a2e", 
+      backgroundColor: "#1a1a2e",
       duration: 2,
-      ease: "power2.inOut", 
+      ease: "power2.inOut",
     })
+    .to(".step6", { visibility: "visible", opacity: 0 })
+
+    .call(async () => {
+      await typeEffectt(textStep6, greetingTextStep6);
+    })
+    .to(".step6", { opacity: 1, duration: 0.5 })
+    .to(".step6", { duration: 40 })
+    .to(".step6", { opacity: 0, duration: 0.5, delay: 1 }, "+=1")
+    .to(".step6", { visibility: "hidden" }, "+=1")
+    .to(".step7", { visibility: "visible", opacity: 0 })
+    .to(".step7", { opacity: 1 })
+    .set(".step5", { visibility: "visible" })
+    .set(".step5 svg", {
+      scale: 0,
+      opacity: 1,
+      visibility: "visible",
+    })
+    .staggerTo(
+      ".step5 svg",
+      1.5,
+      {
+        opacity: 0,
+        scale: 80,
+        repeat: 3,
+        repeatDelay: 1.4,
+      },
+      0.3
+    )
+    .to(
+      "body",
+      {
+        backgroundColor: "#b0b0eaff",
+        duration: 2,
+        ease: "power2.inOut",
+      },
+      "-=3.6"
+    )
+    .staggerFrom(
+      ".happyBirthday span",
+      0.7,
+      {
+        opacity: 0,
+        y: -50,
+        rotation: 150,
+        skewX: "30deg",
+        ease: Elastic.easeOut.config(1, 0.5),
+      },
+      0.1
+    )
+    .staggerFromTo(
+      ".happyBirthday span",
+      0.7,
+      { scale: 1.4, rotationY: 150 },
+      { scale: 1, rotationY: 0, color: "pink", ease: Expo.easeOut },
+      0.1
+    )
+    .fromTo(
+      letter,
+      {
+        opacity: 0,
+        y: -40,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "power3.out",
+      }
+    )
+
+    .to(".happyBirthday span", {
+      y: 10,
+      opacity: 0.6,
+      duration: 1.2,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut",
+      stagger: 0.1,
+      color: "#ff2323ff",
+    })
+    .staggerFromTo(
+      ".baloons img",
+      2.3,
+      { y: 1400, opacity: 0.9 },
+      { y: -1000, opacity: 1 },
+      0.3,
+      "=-3"
+    )
+    .to(".baloons img", { visibility: "hidden" })
+    .to(".step8", { visibility: "visible", opacity: 0 })
+    .to(".step8", { opacity: 1 })
+    .fromTo(
+      ".step8 .magic-btn",
+      { opacity: 0, y: 30, scale: 0.9 },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.6,
+        ease: "power3.out",
+      }
+    );
+
+  gsap.set(btn, { scale: 1 });
+
+  btn.addEventListener("mouseenter", () => {
+    gsap.to(btn, {
+      scale: 1.08,
+      boxShadow: "0 0 30px rgba(255,122,217,0.8)",
+      duration: 0.3,
+      ease: "power3.out",
+    });
+  });
+
+  btn.addEventListener("mouseleave", () => {
+    gsap.to(btn, {
+      scale: 1,
+      boxShadow: "0 10px 30px rgba(0,0,0,0.25)",
+      duration: 0.3,
+      ease: "power3.out",
+    });
+  });
+
+  btn.addEventListener("mousedown", () => {
+    gsap.to(btn, {
+      scale: 0.95,
+      duration: 0.1,
+    });
+  });
+
+  btn.addEventListener("mouseup", () => {
+    gsap.to(btn, {
+      scale: 1.05,
+      duration: 0.15,
+    });
+  });
+  btn.addEventListener("click", () => {
+  gsap.to("body", {
+    opacity: 0,
+    duration: 0.6,
+    ease: "power2.inOut",
+    onComplete: () => {
+      window.location.href = window.location.href;
+    }
+  });
+});
+ 
 };
