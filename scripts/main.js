@@ -320,7 +320,7 @@ const animationTimeline = () => {
     .to(
       "body",
       {
-        backgroundColor: "#dedef8ff",
+        backgroundColor: "#84fff1ff",
         duration: 2,
         ease: "power2.inOut",
       },
